@@ -166,7 +166,7 @@ code {
 
 .nav__brand {
 	font-weight: 700;
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 	text-transform: uppercase;
 }
 

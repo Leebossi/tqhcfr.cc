@@ -95,6 +95,7 @@ const updateResults = () => {
   const gearInchesEl = document.querySelector('#gearInches');
   const meterDevEl = document.querySelector('#meterDev');
   const gainRatioEl = document.querySelector('#gainRatio');
+  const gearRatioEl = document.querySelector('#gearRatio');
   const cadenceTableEl = document.querySelector('#cadenceTable');
   const skidCountEl = document.querySelector('#skidCount');
   const skidAmbiToggle = document.querySelector('#skidAmbi');
@@ -122,7 +123,6 @@ const updateResults = () => {
   const wheelDiameterMeters = effectiveWheelDiameter / 1000;
   const wheelDiameterInches = effectiveWheelDiameter / 25.4;
   const wheelRadiusMm = effectiveWheelDiameter / 2;
-
   const gearInches = wheelDiameterInches * gearRatio;
   const meterDevelopment = Math.PI * wheelDiameterMeters * gearRatio;
   const gainRatio = (wheelRadiusMm / crankLength) * gearRatio;
@@ -136,6 +136,7 @@ const updateResults = () => {
   gearInchesEl.textContent = `${formatNumber(gearInches, 1)} in`;
   meterDevEl.textContent = `${formatNumber(meterDevelopment, 2)} m`;
   gainRatioEl.textContent = formatNumber(gainRatio, 2);
+  gearRatioEl.textContent = formatNumber(gearRatio, 2);
   skidCountEl.textContent = skidPatches.toString();
   renderSkidPatches(skidPatches, isAmbidextrous);
 
