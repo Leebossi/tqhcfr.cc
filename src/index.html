@@ -1,13 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <script src="index.js"></script>
-  <title>TQHCFR.cc</title>
-</head>
-<body>
-  <h1>Welcome to TQHCFR</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js" defer></script>
+    <title>TQHCFR.cc</title>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container cluster" style="justify-content: space-between">
+        <div class="nav__brand">TQHCFR</div>
+      </div>
+    </header>
+    <main class="section">
+      <div class="container stack calculator">
+        <div class="stack">
+          <h1>Fixed Gear Ratio Calculator</h1>
+        </div>
+
+        <section class="surface card">
+          <div class="form-grid">
+            <label class="stack" style="gap: var(--space-2)">
+              <span>Rim diameter (mm)</span>
+              <input class="input" id="wheelDiameter" type="number" min="300" step="1" value="622" />
+            </label>
+            <label class="stack" style="gap: var(--space-2)">
+              <span>Tire size (mm)</span>
+              <input class="input" id="tireSize" type="number" min="10" step="1" value="28" />
+            </label>
+            <label class="stack" style="gap: var(--space-2)">
+              <span>Crank length (mm)</span>
+              <div class="custom-select" data-select="crankLength">
+                <input type="hidden" id="crankLength" value="170" />
+                <button
+                  class="input custom-select__trigger"
+                  type="button"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                >
+                  <span class="custom-select__value">170</span>
+                  <span class="custom-select__caret" aria-hidden="true"></span>
+                </button>
+                <div class="custom-select__menu" role="listbox">
+                  <button class="custom-select__option" type="button" data-value="175">175</button>
+                  <button class="custom-select__option" type="button" data-value="172.5">172.5</button>
+                  <button class="custom-select__option" type="button" data-value="170">170</button>
+                  <button class="custom-select__option" type="button" data-value="167.5">167.5</button>
+                  <button class="custom-select__option" type="button" data-value="165">165</button>
+                  <button class="custom-select__option" type="button" data-value="162.5">162.5</button>
+                  <button class="custom-select__option" type="button" data-value="160">160</button>
+                  <button class="custom-select__option" type="button" data-value="157.5">157.5</button>
+                  <button class="custom-select__option" type="button" data-value="155">155</button>
+                  <button class="custom-select__option" type="button" data-value="152.5">152.5</button>
+                  <button class="custom-select__option" type="button" data-value="150">150</button>
+                  <button class="custom-select__option" type="button" data-value="147.5">147.5</button>
+                  <button class="custom-select__option" type="button" data-value="145">145</button>
+                  <button class="custom-select__option" type="button" data-value="142.5">142.5</button>
+                  <button class="custom-select__option" type="button" data-value="140">140</button>
+                </div>
+              </div>
+            </label>
+            <label class="stack" style="gap: var(--space-2)">
+              <span>Front chainring teeth</span>
+              <input class="input" id="frontTeeth" type="number" min="20" step="1" value="48" />
+            </label>
+            <label class="stack" style="gap: var(--space-2)">
+              <span>Rear sprocket teeth</span>
+              <input class="input" id="rearTeeth" type="number" min="10" step="1" value="16" />
+            </label>
+          </div>
+        </section>
+
+        <section class="surface card">
+          <div class="results-grid">
+            <div class="result stack">
+              <span class="eyebrow">Gear inches</span>
+              <strong id="gearInches">—</strong>
+            </div>
+            <div class="result stack">
+              <span class="eyebrow">Meter development</span>
+              <strong id="meterDev">—</strong>
+            </div>
+            <div class="result stack">
+              <span class="eyebrow">Gain ratio</span>
+              <strong id="gainRatio">—</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="surface card">
+          <div class="skid-visual">
+            <div class="stack">
+              <h2>Skid patches</h2>
+              <p>Rear wheel skid patches based on your chainring and sprocket.</p>
+              <div class="result stack">
+                <span class="eyebrow">Skid patches</span>
+                <strong id="skidCount">—</strong>
+              </div>
+            </div>
+            <svg
+              id="skidSvg"
+              class="skid-wheel"
+              viewBox="0 0 200 200"
+              role="img"
+              aria-label="Rear wheel skid patch visualization"
+            >
+              <circle cx="100" cy="100" r="86" class="skid-tyre" />
+              <circle cx="100" cy="100" r="76" class="skid-rim" />
+              <circle cx="100" cy="100" r="5" class="skid-hub" />
+              <g id="skidSpokes"></g>
+              <g id="skidPatches"></g>
+            </svg>
+          </div>
+        </section>
+
+        <section class="surface card">
+          <div class="stack">
+            <h2>Cadence / Speed</h2>
+            <div class="table-wrap">
+              <table class="table" aria-label="Cadence to speed table">
+                <thead>
+                  <tr>
+                    <th>Cadence (rpm)</th>
+                    <th>Speed (km/h)</th>
+                    <!-- <th>Speed (mph)</th> -->
+                  </tr>
+                </thead>
+                <tbody id="cadenceTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
