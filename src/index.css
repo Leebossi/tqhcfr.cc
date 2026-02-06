@@ -367,7 +367,7 @@ code {
 .skid-wheel {
 	width: min(320px, 100%);
 	justify-self: center;
-	background: #ffffff;
+	background: var(--color-surface-2);
 	border: 3px solid var(--color-border);
 	box-shadow: var(--shadow-sm);
 }
@@ -401,6 +401,62 @@ code {
 	stroke: var(--color-primary-strong);
 	stroke-width: 6;
 	stroke-linecap: square;
+}
+
+.skid-patch--left {
+	stroke: var(--color-primary-strong);
+}
+
+.skid-patch--right {
+	stroke: var(--color-accent);
+}
+
+.checkbox {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-3);
+	font-weight: 600;
+}
+
+.checkbox input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.checkbox__box {
+	width: 2rem;
+	height: 2rem;
+	border: 3px solid var(--color-border);
+	background: #ffffff;
+	position: relative;
+}
+
+.checkbox__box::after {
+	content: "";
+	position: absolute;
+	left: 0.5rem;
+	top: 0.2rem;
+	width: 0.6rem;
+	height: 0.9rem;
+	border-right: 3px solid var(--color-border);
+	border-bottom: 3px solid var(--color-border);
+	transform: rotate(45deg) scale(0);
+	transform-origin: center;
+	transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.checkbox input[type="checkbox"]:checked + .checkbox__box {
+  background-color: var(--color-primary);
+}
+
+.checkbox input[type="checkbox"]:checked + .checkbox__box::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.checkbox input[type="checkbox"]:focus-visible + .checkbox__box {
+	outline: 3px solid #111111;
+	outline-offset: 2px;
 }
 
 .custom-select {

@@ -26,7 +26,7 @@ const renderSpokes = (count = 20) => {
   const angleStep = (Math.PI * 2) / count;
 
   for (let i = 0; i < count; i += 1) {
-    const angle = i * angleStep - Math.PI / 2;
+    const angle = i * angleStep + Math.PI / 2;
     const x1 = center + Math.cos(angle) * radiusInner;
     const y1 = center + Math.sin(angle) * radiusInner;
     const x2 = center + Math.cos(angle) * radiusOuter;
@@ -42,7 +42,7 @@ const renderSpokes = (count = 20) => {
   }
 };
 
-const renderSkidPatches = (count) => {
+const renderSkidPatches = (count, alternate = false) => {
   const group = document.querySelector('#skidPatches');
   if (!group) {
     return;
@@ -60,7 +60,7 @@ const renderSkidPatches = (count) => {
   const angleStep = (Math.PI * 2) / count;
 
   for (let i = 0; i < count; i += 1) {
-    const angle = i * angleStep - Math.PI / 2;
+    const angle = i * angleStep + Math.PI / 2;
     const x1 = center + Math.cos(angle) * radiusInner;
     const y1 = center + Math.sin(angle) * radiusInner;
     const x2 = center + Math.cos(angle) * radiusOuter;
@@ -71,7 +71,10 @@ const renderSkidPatches = (count) => {
     line.setAttribute('y1', y1.toFixed(2));
     line.setAttribute('x2', x2.toFixed(2));
     line.setAttribute('y2', y2.toFixed(2));
-    line.setAttribute('class', 'skid-patch');
+    const patchClass = alternate
+      ? `skid-patch skid-patch--${i % 2 === 0 ? 'left' : 'right'}`
+      : 'skid-patch';
+    line.setAttribute('class', patchClass);
     group.appendChild(line);
   }
 };
@@ -94,6 +97,7 @@ const updateResults = () => {
   const gainRatioEl = document.querySelector('#gainRatio');
   const cadenceTableEl = document.querySelector('#cadenceTable');
   const skidCountEl = document.querySelector('#skidCount');
+  const skidAmbiToggle = document.querySelector('#skidAmbi');
 
   if (!gearInchesEl || !meterDevEl || !gainRatioEl || !cadenceTableEl || !skidCountEl) {
     return;
@@ -122,13 +126,18 @@ const updateResults = () => {
   const gearInches = wheelDiameterInches * gearRatio;
   const meterDevelopment = Math.PI * wheelDiameterMeters * gearRatio;
   const gainRatio = (wheelRadiusMm / crankLength) * gearRatio;
-  const skidPatches = Math.round(rearTeeth / gcd(frontTeeth, rearTeeth));
+  const baseSkidPatches = Math.round(rearTeeth / gcd(frontTeeth, rearTeeth));
+  const isAmbidextrous = skidAmbiToggle?.checked && frontTeeth % 2 === 0;
+  const skidPatches = Math.min(
+    isAmbidextrous ? baseSkidPatches * 2 : baseSkidPatches,
+    rearTeeth
+  );
 
   gearInchesEl.textContent = `${formatNumber(gearInches, 1)} in`;
   meterDevEl.textContent = `${formatNumber(meterDevelopment, 2)} m`;
   gainRatioEl.textContent = formatNumber(gainRatio, 2);
   skidCountEl.textContent = skidPatches.toString();
-  renderSkidPatches(skidPatches);
+  renderSkidPatches(skidPatches, isAmbidextrous);
 
   cadenceTableEl.innerHTML = cadenceSteps
     .map((cadence) => {
