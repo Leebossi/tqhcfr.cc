@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png" />
     <link rel="manifest" href="public/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
+    <script src="js/i18n.js" defer></script>
     <script src="js/index.js" defer></script>
     <title>TQHCFR.cc</title>
   </head>
@@ -16,22 +17,27 @@
       <div class="container cluster" style="justify-content: space-between">
         <div class="nav__brand">TQHCFR</div>
         <nav class="nav__links cluster">
-          <a href="/calculator">Calculator</a>
-          <a href="/events">Events</a>
-          <a href="/stickers">Stickers</a>
+          <a href="/calculator" data-i18n="nav.calculator">Calculator</a>
+          <a href="/events" data-i18n="nav.events">Events</a>
+          <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
         </nav>
       </div>
     </header>
     <main class="section">
       <div class="container stack">
         <div class="stack">
-          <h1>TQHCFR.cc</h1>
-          <p>Fixed gear resources, tools, and rides from Turku.</p>
+          <h1 data-i18n="home.title">TQHCFR.cc</h1>
+          <p data-i18n="home.subtitle">Fixed gear resources, tools, and rides from Turku.</p>
         </div>
         <section class="surface card">
-          <h2>Tools</h2>
-          <p>Use the fixed gear calculator to explore gearing, skid patches, and cadence.</p>
-          <a class="btn btn-primary" href="/calculator">Open calculator</a>
+          <h2 data-i18n="home.tools.title">Tools</h2>
+          <p data-i18n="home.tools.body">
+            Use the fixed gear calculator to explore gearing, skid patches, and cadence.
+          </p>
+          <a class="btn btn-primary" href="/calculator" data-i18n="home.tools.cta">
+            Open calculator
+          </a>
         </section>
       </div>
     </main>

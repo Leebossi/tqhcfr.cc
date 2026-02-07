@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="public/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="public/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="public/favicon-16x16.png"
+    />
     <link rel="manifest" href="public/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
+    <script src="js/i18n.js" defer></script>
     <script src="js/index.js" defer></script>
     <title>TQHCFR.cc · Events</title>
   </head>
@@ -16,22 +31,36 @@
       <div class="container cluster" style="justify-content: space-between">
         <div class="nav__brand">TQHCFR</div>
         <nav class="nav__links cluster">
-          <a href="/">Home</a>
-          <a href="/calculator">Calculator</a>
-          <a href="/stickers">Stickers</a>
+          <a href="/" data-i18n="nav.home">Home</a>
+          <a href="/calculator" data-i18n="nav.calculator">Calculator</a>
+          <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
         </nav>
       </div>
     </header>
     <main class="section">
       <div class="container stack">
-        <div class="stack">
-          <h1>Events</h1>
-          <p>Upcoming rides, meetups, and fixed gear gatherings.</p>
+        <h1 data-i18n="events.title">Events</h1>
+      </div>
+
+      <div class="section">
+        <div class="container stack">
+          <section class="surface card">
+            <h3 data-i18n="events.endOfDays">End of Days</h3>
+            <p data-i18n="events.endOfDays.body">
+              End of Days is an annual fixed gear alleycat race.
+            </p>
+          </section>
+          <section class="surface card">
+            <h3 data-i18n="events.socialRide">Bi-weekly social ride</h3>
+            <p data-i18n="events.socialRide.body">
+              We organize a bi-weekly social ride in Turku. The ride is open to
+              everyone and we welcome riders of all skill levels. We usually
+              meet at the city center and ride to a nearby cafe or park. Follow
+              us on Instagram for updates on the next ride.
+            </p>
+          </section>
         </div>
-        <section class="surface card">
-          <h2>No events listed yet</h2>
-          <p>Add upcoming rides here as they are announced.</p>
-        </section>
       </div>
     </main>
   </body>

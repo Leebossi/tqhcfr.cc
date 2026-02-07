@@ -22,6 +22,7 @@
     />
     <link rel="manifest" href="public/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
+    <script src="js/i18n.js" defer></script>
     <script src="js/calculator.js" defer></script>
     <title>TQHCFR.cc · Calculator</title>
   </head>
@@ -30,22 +31,23 @@
       <div class="container cluster" style="justify-content: space-between">
         <div class="nav__brand">TQHCFR</div>
         <nav class="nav__links cluster">
-          <a href="/">Home</a>
-          <a href="/events">Events</a>
-          <a href="/stickers">Stickers</a>
+          <a href="/" data-i18n="nav.home">Home</a>
+          <a href="/events" data-i18n="nav.events">Events</a>
+          <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
         </nav>
       </div>
     </header>
     <main class="section">
       <div class="container stack calculator">
         <div class="stack">
-          <h1>Fixed Gear Ratio Calculator</h1>
+          <h1 data-i18n="calculator.title">Fixed Gear Ratio Calculator</h1>
         </div>
 
         <section class="surface card">
           <div class="form-grid">
             <label class="stack" style="gap: var(--space-2)">
-              <span>Rim diameter (mm)</span>
+              <span data-i18n="calculator.rim">Rim diameter (mm)</span>
               <input
                 class="input"
                 id="wheelDiameter"
@@ -56,7 +58,7 @@
               />
             </label>
             <label class="stack" style="gap: var(--space-2)">
-              <span>Tire size (mm)</span>
+              <span data-i18n="calculator.tire">Tire size (mm)</span>
               <input
                 class="input"
                 id="tireSize"
@@ -67,7 +69,7 @@
               />
             </label>
             <label class="stack" style="gap: var(--space-2)">
-              <span>Crank length (mm)</span>
+              <span data-i18n="calculator.crank">Crank length (mm)</span>
               <div class="custom-select" data-select="crankLength">
                 <input type="hidden" id="crankLength" value="170" />
                 <button
@@ -189,7 +191,7 @@
               </div>
             </label>
             <label class="stack" style="gap: var(--space-2)">
-              <span>Front chainring teeth</span>
+              <span data-i18n="calculator.front">Front chainring teeth</span>
               <input
                 class="input"
                 id="frontTeeth"
@@ -200,7 +202,7 @@
               />
             </label>
             <label class="stack" style="gap: var(--space-2)">
-              <span>Rear sprocket teeth</span>
+              <span data-i18n="calculator.rear">Rear sprocket teeth</span>
               <input
                 class="input"
                 id="rearTeeth"
@@ -214,22 +216,22 @@
         </section>
 
         <section class="surface card">
-          <h2>Gearing</h2>
+          <h2 data-i18n="calculator.gearing.title">Gearing</h2>
           <div class="results-grid">
             <div class="result stack">
-              <span class="eyebrow">Gear inches</span>
+              <span class="eyebrow" data-i18n="calculator.gearInches">Gear inches</span>
               <strong id="gearInches">—</strong>
             </div>
             <div class="result stack">
-              <span class="eyebrow">Meter development</span>
+              <span class="eyebrow" data-i18n="calculator.meterDev">Meter development</span>
               <strong id="meterDev">—</strong>
             </div>
             <div class="result stack">
-              <span class="eyebrow">Gain ratio</span>
+              <span class="eyebrow" data-i18n="calculator.gainRatio">Gain ratio</span>
               <strong id="gainRatio">—</strong>
             </div>
             <div class="result stack">
-              <span class="eyebrow">Gear ratio</span>
+              <span class="eyebrow" data-i18n="calculator.gearRatio">Gear ratio</span>
               <strong id="gearRatio">—</strong>
             </div>
           </div>
@@ -238,17 +240,17 @@
         <section class="surface card">
           <div class="skid-visual">
             <div class="stack">
-              <h2>Skid patches</h2>
-              <p>
+              <h2 data-i18n="calculator.skid.title">Skid patches</h2>
+              <p data-i18n="calculator.skid.body">
                 Rear wheel skid patches based on your chainring and sprocket.
               </p>
               <label class="checkbox">
                 <input id="skidAmbi" type="checkbox" />
                 <span class="checkbox__box" aria-hidden="true"></span>
-                <span>Ambidextrous skids (both feet)</span>
+                <span data-i18n="calculator.skid.ambi">Ambidextrous skids (both feet)</span>
               </label>
               <div class="result stack">
-                <span class="eyebrow">Skid patches</span>
+                <span class="eyebrow" data-i18n="calculator.skid.count">Skid patches</span>
                 <strong id="skidCount">—</strong>
               </div>
             </div>
@@ -270,13 +272,13 @@
 
         <section class="surface card">
           <div class="stack">
-            <h2>Cadence / Speed</h2>
+            <h2 data-i18n="calculator.cadence.title">Cadence / Speed</h2>
             <div class="table-wrap">
               <table class="table" aria-label="Cadence to speed table">
                 <thead>
                   <tr>
-                    <th>Cadence (rpm)</th>
-                    <th>Speed (km/h)</th>
+                    <th data-i18n="calculator.cadence.rpm">Cadence (rpm)</th>
+                    <th data-i18n="calculator.cadence.kph">Speed (km/h)</th>
                     <!-- <th>Speed (mph)</th> -->
                   </tr>
                 </thead>
