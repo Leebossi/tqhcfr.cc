@@ -231,4 +231,5 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', updateResults);
+
 document.addEventListener('DOMContentLoaded', () => renderSpokes(20));
