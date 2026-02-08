@@ -23,16 +23,21 @@
     <link rel="manifest" href="public/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
     <script src="js/i18n.js" defer></script>
+    <script src="js/index.js" defer></script>
     <script src="js/calculator.js" defer></script>
     <title>TQHCFR.cc · Calculator</title>
   </head>
   <body>
     <header class="nav">
-      <div class="container cluster" style="justify-content: space-between">
+      <div class="container cluster nav__inner" style="justify-content: space-between">
         <a class="nav__brand" href="/">
           <img src="public/tqhcfr_small.png" alt="TQHCFR" />
         </a>
-        <nav class="nav__links cluster">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+          <span class="nav__toggle-bars" aria-hidden="true"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <nav class="nav__links cluster" id="siteNav">
           <a href="/" data-i18n="nav.home">Home</a>
           <a href="/events" data-i18n="nav.events">Events</a>
           <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
