@@ -22,6 +22,10 @@
     />
     <link rel="manifest" href="public/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
     <script src="js/i18n.js" defer></script>
     <script src="js/index.js" defer></script>
     <title>TQHCFR.cc · Events</title>
@@ -29,12 +33,16 @@
   <body>
     <header class="nav">
       <div class="container cluster" style="justify-content: space-between">
-        <div class="nav__brand">TQHCFR</div>
+        <a class="nav__brand" href="/">
+          <img src="public/tqhcfr_small.png" alt="TQHCFR" />
+        </a>
         <nav class="nav__links cluster">
           <a href="/" data-i18n="nav.home">Home</a>
           <a href="/calculator" data-i18n="nav.calculator">Calculator</a>
           <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
-          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">
+            FI
+          </button>
         </nav>
       </div>
     </header>
@@ -59,6 +67,30 @@
               meet at the city center and ride to a nearby cafe or park. Follow
               us on Instagram for updates on the next ride.
             </p>
+            <p data-i18n="events.socialRide.join">
+              Join the discussion on Yksivaihde.net forum or our Signal chat to
+              stay updated on the next ride and connect with other riders.
+            </p>
+            <div class="social-links">
+              <a
+                class="social-link"
+                href="https://www.yksivaihde.net/t/tqhcfr-bi-weekly-social-ride-10-6-2025/58178/last"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="ti ti-message"></i>
+                <span data-i18n="home.social.forum">Forum discussion</span>
+              </a>
+              <a
+                class="social-link"
+                href="https://signal.group/#CjQKIBnDcF6jvWHhaNm7vm30MxbQ1V0xgjZdyOMKxmUQAsqCEhC4IzThQtwsOci1BM2-cuNX"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="ti ti-message-circle"></i>
+                <span data-i18n="home.social.signal">Signal chat</span>
+              </a>
+            </div>
           </section>
         </div>
       </div>
