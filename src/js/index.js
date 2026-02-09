@@ -15,8 +15,12 @@ const initMobileNav = () => {
 
 	nav.querySelectorAll('a, button').forEach((link) => {
 		link.addEventListener('click', () => {
+			if (link.id === 'langToggle') {
+				return;
+			}
 			nav.classList.remove('is-open');
 			toggle.setAttribute('aria-expanded', 'false');
+			bars.setAttribute('aria-expanded', 'false');
 		});
 	});
 };
