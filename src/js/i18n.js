@@ -67,7 +67,7 @@ const initTranslations = async () => {
 
   const available = Object.keys(dictionary);
   const stored = getStoredLanguage();
-  const fallback = available.includes('en') ? 'en' : available[0];
+  const fallback = available.includes('fi') ? 'fi' : available[0];
   let currentLang = stored && available.includes(stored) ? stored : fallback;
 
   if (!currentLang) {
