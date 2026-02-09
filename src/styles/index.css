@@ -281,6 +281,11 @@ code {
 		border-color var(--duration-fast) var(--ease-standard);
 }
 
+.btn i {
+  margin-right: var(--space-2);
+  font-size: 2rem;
+}
+
 .btn:focus-visible {
 	outline: 3px solid #111111;
 	outline-offset: 2px;
@@ -308,6 +313,11 @@ code {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-3);
+}
+
+.stickers-card {
+  align-items: center;
+  text-align: center;
 }
 
 .social-links {
@@ -340,6 +350,11 @@ code {
 
 .social-link i {
 	font-size: 2rem;
+}
+
+.social-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
 }
 
 .badge {

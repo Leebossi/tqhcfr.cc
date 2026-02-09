@@ -3,23 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/favicon-16x16.png"
+    />
     <link rel="manifest" href="static/site.webmanifest" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
     <script src="js/i18n.js" defer></script>
     <script src="js/index.js" defer></script>
     <title>TQHCFR.cc</title>
   </head>
   <body>
     <header class="nav">
-      <div class="container cluster nav__inner" style="justify-content: space-between">
+      <div
+        class="container cluster nav__inner"
+        style="justify-content: space-between"
+      >
         <a class="nav__brand" href="/">
           <img src="static/img/tqhcfr_small.png" alt="TQHCFR" />
         </a>
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteNav"
+        >
           <span class="nav__toggle-bars" aria-hidden="true"></span>
           <span class="sr-only">Menu</span>
         </button>
@@ -27,7 +52,9 @@
           <a href="/events" data-i18n="nav.events">Events</a>
           <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
           <a href="/calculator" data-i18n="nav.calculator">Calculator</a>
-          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">
+            FI
+          </button>
         </nav>
       </div>
     </header>
@@ -35,17 +62,13 @@
       <div class="container stack">
         <div class="stack">
           <h1 data-i18n="home.title">TQHCFR.cc</h1>
-          <p data-i18n="home.subtitle">Fixed gear resources, tools, and rides from Turku.</p>
-        </div>
-        <section class="surface card">
-          <h2 data-i18n="home.tools.title">Tools</h2>
-          <p data-i18n="home.tools.body">
-            Use the fixed gear calculator to explore gearing, skid patches, and cadence.
+          <p data-i18n="home.subtitle">
+            We are a Turku based cycling community. Our mission is to promote
+            and encourage (fixed gear) cycling in the region. We do this by
+            organizing rides and events, sharing resources, and building a
+            supportive community.
           </p>
-          <a class="btn btn-primary" href="/calculator" data-i18n="home.tools.cta">
-            Open calculator
-          </a>
-        </section>
+        </div>
         <section class="surface card">
           <h2 data-i18n="home.social.title">Social</h2>
           <p data-i18n="home.social.body">
@@ -81,7 +104,35 @@
             </a>
           </div>
         </section>
-
+        <section class="surface card">
+          <h2 data-i18n="home.tools.title">Tools and resources</h2>
+          <p data-i18n="home.tools.body">
+            Use the fixed gear calculator to explore gearing, skid patches, and
+            cadence.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="/calculator"
+            style="margin-bottom: 2rem"
+          >
+            <i class="ti ti-settings"></i>
+            <span data-i18n="home.tools.cta">Open calculator</span>
+          </a>
+          <p data-i18n="home.tools.forum.body">
+            Yksivaihde.net is a shared online community for enthusiasts,
+            admirers, builders, and especially riders of single-speed and
+            fixed-gear bicycles.
+          </p>
+          <a
+            class="social-link"
+            href="https://www.yksivaihde.net"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="ti ti-message"></i>
+            <span>Yksivaihde.net</span>
+          </a>
+        </section>
       </div>
     </main>
   </body>
