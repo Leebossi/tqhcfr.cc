@@ -1,5 +1,7 @@
 # TQHCFR.cc
 
+[![Deploy](https://github.com/Leebossi/tqhcfr.cc/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Leebossi/tqhcfr.cc/actions/workflows/deploy.yml)
+
 Static website for the Turku fixed gear community with bilingual (FI/EN) support.
 
 ## Tech Stack
@@ -24,4 +26,4 @@ Translations live in `src/i18n/translations.json` and are loaded by `src/js/i18n
 
 ## Deployment
 
-Automated deployment using GitHub Actions. The site is served by Nginx with extensionless routing and a custom 404 page.
+Automated deployment using GitHub Actions. The site is served by Nginx with extensionless routing.
