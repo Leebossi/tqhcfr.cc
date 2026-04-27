@@ -14,6 +14,38 @@ if [ "$NODE_MAJOR" -lt 20 ]; then
 	exit 1
 fi
 
+if sudo -n true >/dev/null 2>&1; then
+	SUDO="sudo -n"
+else
+	SUDO=""
+fi
+
+run_privileged() {
+	if [ -n "$SUDO" ]; then
+		$SUDO "$@"
+	else
+		"$@"
+	fi
+}
+
+ensure_writable_dir() {
+	local dir="$1"
+	if [ -d "$dir" ]; then
+		if [ ! -w "$dir" ] && [ -z "$SUDO" ]; then
+			echo "Directory $dir is not writable and passwordless sudo is not available."
+			exit 1
+		fi
+	else
+		local parent
+		parent=$(dirname "$dir")
+		if [ ! -w "$parent" ] && [ -z "$SUDO" ]; then
+			echo "Cannot create $dir: $parent is not writable and passwordless sudo is not available."
+			exit 1
+		fi
+		run_privileged mkdir -p "$dir"
+	fi
+}
+
 echo "Deployment started ..."
 echo "Using Node $(node -v) and npm $(npm -v)"
 
@@ -23,7 +55,8 @@ echo "New changes copied to server !"
 
 # Copying src to /var/www/
 echo "Copying src to /var/www/tqhcfr"
-sudo cp -r src/* /var/www/tqhcfr
+ensure_writable_dir /var/www/tqhcfr
+run_privileged cp -r src/* /var/www/tqhcfr
 
 # Build and deploy EOD-form to subdomain root
 echo "Building EOD-form"
@@ -32,9 +65,9 @@ npm ci
 npm run build
 
 echo "Copying EOD-form dist to /var/www/eod.tqhcfr.cc"
-sudo mkdir -p /var/www/eod.tqhcfr.cc
-sudo rm -rf /var/www/eod.tqhcfr.cc/*
-sudo cp -r dist/* /var/www/eod.tqhcfr.cc
+ensure_writable_dir /var/www/eod.tqhcfr.cc
+run_privileged rm -rf /var/www/eod.tqhcfr.cc/*
+run_privileged cp -r dist/* /var/www/eod.tqhcfr.cc
 cd ..
 
 echo "Deployment Finished!"
