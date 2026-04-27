@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "./supabase";
+import { supabase, supabaseConfigError } from "./supabase";
 
 type FormState = { name: string; email: string };
 type Errors = Partial<FormState>;
@@ -15,6 +15,7 @@ const i18n: Record<Language, Record<string, string>> = {
     nameError: "Nimi on pakollinen.",
     emailErrorRequired: "Sähköposti on pakollinen.",
     emailErrorInvalid: "Anna kelvollinen sähköpostiosoite.",
+    configError: "Ilmoittautuminen ei ole käytettävissä juuri nyt. Ei yhteyttä tietokantaan.",
     submitError: "Ilmoittautuminen epäonnistui. Yritä uudelleen.",
     submitting: "Lähetetään…",
     submit: "Ilmoittaudu",
@@ -30,6 +31,7 @@ const i18n: Record<Language, Record<string, string>> = {
     nameError: "Name is required.",
     emailErrorRequired: "Email is required.",
     emailErrorInvalid: "Enter a valid email address.",
+    configError: "Registration is unavailable right now. No connection to the database.",
     submitError: "Registration failed. Try again.",
     submitting: "Submitting…",
     submit: "Register",
@@ -77,6 +79,10 @@ function App() {
     const errs = validate(values, lang);
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
+      return;
+    }
+    if (supabaseConfigError || !supabase) {
+      setServerError(t.configError);
       return;
     }
     setLoading(true);
@@ -174,12 +180,15 @@ function App() {
             </label>
 
             {serverError && <span className="field-error">{serverError}</span>}
+            {supabaseConfigError && !serverError && (
+              <span className="field-error">{t.configError}</span>
+            )}
 
             <button
               type="submit"
               className="btn btn-primary"
               style={{ marginTop: "var(--space-2)" }}
-              disabled={loading}
+              disabled={loading || Boolean(supabaseConfigError)}
             >
               {loading ? t.submitting : t.submit}
             </button>
@@ -188,7 +197,7 @@ function App() {
       )}
 
       <footer className="footer">
-        <a className="footer-link" href="https://tqhcfr.cc" target="_blank" rel="noreferrer">
+        <a className="footer-link" href="https://tqhcfr.cc/events" target="_blank" rel="noreferrer">
           TQHCFR.cc
         </a>
       </footer>
