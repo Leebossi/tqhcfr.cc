@@ -184,3 +184,16 @@ nav {
 .success-box h2 {
 	margin-bottom: var(--space-2);
 }
+
+.footer {
+	padding: var(--space-8) 0 var(--space-10);
+	text-align: center;
+}
+
+.footer-link {
+	display: inline-block;
+	font-weight: 700;
+	color: var(--color-text);
+	padding: var(--space-2) var(--space-4);
+	text-decoration: none;
+}

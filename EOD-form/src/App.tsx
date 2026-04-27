@@ -9,6 +9,7 @@ const i18n: Record<Language, Record<string, string>> = {
   fi: {
     event: "End Of Days 2026 Hämeenlinna",
     title: "Ilmoittaudu ajamaan",
+    disclaimer: "Ilmoittautuminen ei ole sitova. Tietojasi ei käytetä markkinointiin, niitä ei luovuteta kolmansille osapuolille, eikä niitä säilytetä tapahtuman jälkeen.",
     nameLabel: "Nimi",
     emailLabel: "Sähköposti",
     nameError: "Nimi on pakollinen.",
@@ -23,6 +24,7 @@ const i18n: Record<Language, Record<string, string>> = {
   en: {
     event: "End Of Days 2026 Hämeenlinna",
     title: "Register to ride",
+    disclaimer: "Registration is non-binding. Your information will not be used for marketing, shared with third parties, or retained after the event.",
     nameLabel: "Name",
     emailLabel: "Email",
     nameError: "Name is required.",
@@ -122,6 +124,14 @@ function App() {
           </h1>
         </div>
       </div>
+        <p
+          style={{
+            fontSize: "var(--text-sm)",
+            color: "var(--color-muted)",
+          }}
+        >
+          {t.disclaimer}
+        </p>
 
       {submitted ? (
         <div className="success-box">
@@ -176,6 +186,12 @@ function App() {
           </form>
         </div>
       )}
+
+      <footer className="footer">
+        <a className="footer-link" href="https://tqhcfr.cc" target="_blank" rel="noreferrer">
+          TQHCFR.cc
+        </a>
+      </footer>
     </div>
   );
 }
