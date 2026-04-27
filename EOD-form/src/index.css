@@ -55,6 +55,12 @@ body {
 h1, h2, h3 { line-height: 1.2; margin: 0 0 var(--space-4); }
 p { margin: 0 0 var(--space-4); }
 
+nav {
+  display: flex;
+  place-content: end;
+  gap: var(--space-4);
+}
+
 .container {
 	width: min(520px, 92%);
 	margin: 0 auto;
@@ -145,6 +151,19 @@ p { margin: 0 0 var(--space-4); }
 .btn-primary:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
+}
+
+.btn-ghost {
+	background: transparent;
+	color: var(--color-text);
+	box-shadow: none;
+	width: auto;
+  margin-bottom: var(--space-6);
+}
+
+.btn-ghost:hover:not(:disabled) {
+	transform: translate(-2px, -2px);
+	box-shadow: var(--shadow-sm);
 }
 
 .eyebrow {
