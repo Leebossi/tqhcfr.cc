@@ -26,8 +26,8 @@ npm run build
 
 echo "Copying EOD-form dist to /var/www/eod"
 ensure_writable_dir /var/www/eod
-run_privileged rm -rf /var/www/eod/*
-run_privileged cp -r dist/* /var/www/eod
+sudo rm -rf /var/www/eod/*
+sudo cp -r dist/* /var/www/eod
 cd ..
 
 echo "Deployment Finished!"
