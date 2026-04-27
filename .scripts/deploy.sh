@@ -64,10 +64,10 @@ cd EOD-form
 npm ci
 npm run build
 
-echo "Copying EOD-form dist to /var/www/eod.tqhcfr.cc"
-ensure_writable_dir /var/www/eod.tqhcfr.cc
-run_privileged rm -rf /var/www/eod.tqhcfr.cc/*
-run_privileged cp -r dist/* /var/www/eod.tqhcfr.cc
+echo "Copying EOD-form dist to /var/www/eod"
+ensure_writable_dir /var/www/eod
+run_privileged rm -rf /var/www/eod/*
+run_privileged cp -r dist/* /var/www/eod
 cd ..
 
 echo "Deployment Finished!"
