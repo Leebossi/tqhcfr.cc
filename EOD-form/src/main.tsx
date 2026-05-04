@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import Counter from './Counter.tsx'
+
+const isCounter = window.location.pathname === '/counter'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {isCounter ? <Counter /> : <App />}
   </StrictMode>,
 )
