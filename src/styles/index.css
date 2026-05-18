@@ -446,6 +446,24 @@ code {
 	text-transform: uppercase;
 }
 
+.result--doom {
+	align-items: center;
+	text-align: center;
+}
+
+.doom-face {
+	width: 5.25rem;
+	height: 5.25rem;
+	display: block;
+	object-fit: contain;
+	image-rendering: pixelated;
+}
+
+.result--doom.is-empty .doom-face {
+	opacity: 0.35;
+	filter: grayscale(1);
+}
+
 .table-wrap {
 	width: 100%;
 	overflow-x: auto;

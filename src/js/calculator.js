@@ -1,4 +1,29 @@
 const cadenceSteps = [60, 70, 80, 90, 100, 110, 120];
+const faceSpriteBasePath = 'static/img/face_sprites';
+
+const getFaceSpriteNameByGearRatio = (gearRatio) => {
+  if (!Number.isFinite(gearRatio)) {
+    return '1-1';
+  }
+
+  if (gearRatio < 3.0) {
+    return '1-1';
+  }
+  if (gearRatio < 3.4) {
+    return '1-2';
+  }
+  if (gearRatio < 3.8) {
+    return '1-3';
+  }
+  if (gearRatio < 4.1) {
+    return '1-4';
+  }
+  if (gearRatio <= 4.5) {
+    return '1-5';
+  }
+
+  return '1-6';
+};
 
 const formatNumber = (value, digits = 2) =>
   Number.isFinite(value) ? value.toFixed(digits) : '—';
@@ -99,6 +124,8 @@ const updateResults = () => {
   const cadenceTableEl = document.querySelector('#cadenceTable');
   const skidCountEl = document.querySelector('#skidCount');
   const skidAmbiToggle = document.querySelector('#skidAmbi');
+  const ratioFaceSpriteEl = document.querySelector('#ratioFaceSprite');
+  const ratioFaceCardEl = document.querySelector('#ratioFaceCard');
 
   if (!gearInchesEl || !meterDevEl || !gainRatioEl || !cadenceTableEl || !skidCountEl) {
     return;
@@ -114,6 +141,10 @@ const updateResults = () => {
     gainRatioEl.textContent = '—';
     skidCountEl.textContent = '—';
     cadenceTableEl.innerHTML = '';
+    if (ratioFaceSpriteEl) {
+      ratioFaceSpriteEl.src = `${faceSpriteBasePath}/1-1.png`;
+    }
+    ratioFaceCardEl?.classList.add('is-empty');
     renderSkidPatches(0);
     return;
   }
@@ -138,6 +169,11 @@ const updateResults = () => {
   gainRatioEl.textContent = formatNumber(gainRatio, 2);
   gearRatioEl.textContent = formatNumber(gearRatio, 2);
   skidCountEl.textContent = skidPatches.toString();
+  if (ratioFaceSpriteEl) {
+    const spriteName = getFaceSpriteNameByGearRatio(gearRatio);
+    ratioFaceSpriteEl.src = `${faceSpriteBasePath}/${spriteName}.png`;
+  }
+  ratioFaceCardEl?.classList.remove('is-empty');
   renderSkidPatches(skidPatches, isAmbidextrous);
 
   cadenceTableEl.innerHTML = cadenceSteps
