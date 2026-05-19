@@ -26,20 +26,37 @@
     <script src="js/index.js" defer></script>
     <script src="js/calculator.js" defer></script>
     <title>TQHCFR.cc · Calculator</title>
-    <meta name="description" content="TQHCFR for fixed gear culture: rides, events, and community in Turku. We also have a handy gear ratio calculator." />
+    <meta
+      name="description"
+      content="TQHCFR for fixed gear culture: rides, events, and community in Turku. We also have a handy gear ratio calculator."
+    />
     <meta property="og:url" content="https://tqhcfr.cc/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="TQHCFR Cycling Club - Rides, events and community 🚲" />
-    <meta property="og:description" content="Join TQHCFR for fixed gear culture: rides, events, and community in Turku. We also have a handy gear ratio calculator." />
+    <meta
+      property="og:title"
+      content="TQHCFR Cycling Club - Rides, events and community 🚲"
+    />
+    <meta
+      property="og:description"
+      content="Join TQHCFR for fixed gear culture: rides, events, and community in Turku. We also have a handy gear ratio calculator."
+    />
     <meta property="og:image" content="/static/img/og-image2.jpeg" />
   </head>
   <body>
     <header class="nav">
-      <div class="container cluster nav__inner" style="justify-content: space-between">
+      <div
+        class="container cluster nav__inner"
+        style="justify-content: space-between"
+      >
         <a class="nav__brand" href="/">
           <img src="static/img/tqhcfr_small.png" alt="TQHCFR" />
         </a>
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteNav"
+        >
           <span class="nav__toggle-bars" aria-hidden="true"></span>
           <span class="sr-only">Menu</span>
         </button>
@@ -47,7 +64,9 @@
           <a href="/" data-i18n="nav.home">Home</a>
           <a href="/events" data-i18n="nav.events">Events</a>
           <a href="/stickers" data-i18n="nav.stickers">Stickers</a>
-          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">FI</button>
+          <button class="btn btn-ghost nav__lang" id="langToggle" type="button">
+            FI
+          </button>
         </nav>
       </div>
     </header>
@@ -231,22 +250,6 @@
         <section class="surface card">
           <h2 data-i18n="calculator.gearing.title">Gearing</h2>
           <div class="results-grid">
-            <div class="result stack">
-              <span class="eyebrow" data-i18n="calculator.gearRatio">Gear ratio</span>
-              <strong id="gearRatio">—</strong>
-            </div>
-            <div class="result stack">
-              <span class="eyebrow" data-i18n="calculator.meterDev">Meter development</span>
-              <strong id="meterDev">—</strong>
-            </div>
-            <div class="result stack">
-              <span class="eyebrow" data-i18n="calculator.gearInches">Gear inches</span>
-              <strong id="gearInches">—</strong>
-            </div>
-            <div class="result stack">
-              <span class="eyebrow" data-i18n="calculator.gainRatio">Gain ratio</span>
-              <strong id="gainRatio">—</strong>
-            </div>
             <div class="result stack result--doom" id="ratioFaceCard">
               <img
                 id="ratioFaceSprite"
@@ -254,6 +257,30 @@
                 alt="Gear ratio difficulty face"
                 class="doom-face"
               />
+            </div>
+            <div class="result stack">
+              <span class="eyebrow" data-i18n="calculator.gearRatio"
+                >Gear ratio</span
+              >
+              <strong id="gearRatio">—</strong>
+            </div>
+            <div class="result stack">
+              <span class="eyebrow" data-i18n="calculator.meterDev"
+                >Meter development</span
+              >
+              <strong id="meterDev">—</strong>
+            </div>
+            <div class="result stack">
+              <span class="eyebrow" data-i18n="calculator.gearInches"
+                >Gear inches</span
+              >
+              <strong id="gearInches">—</strong>
+            </div>
+            <div class="result stack">
+              <span class="eyebrow" data-i18n="calculator.gainRatio"
+                >Gain ratio</span
+              >
+              <strong id="gainRatio">—</strong>
             </div>
           </div>
         </section>
@@ -268,10 +295,14 @@
               <label class="checkbox">
                 <input id="skidAmbi" type="checkbox" />
                 <span class="checkbox__box" aria-hidden="true"></span>
-                <span data-i18n="calculator.skid.ambi">Ambidextrous skids (both feet)</span>
+                <span data-i18n="calculator.skid.ambi"
+                  >Ambidextrous skids (both feet)</span
+                >
               </label>
               <div class="result stack">
-                <span class="eyebrow" data-i18n="calculator.skid.count">Skid patches</span>
+                <span class="eyebrow" data-i18n="calculator.skid.count"
+                  >Skid patches</span
+                >
                 <strong id="skidCount">—</strong>
               </div>
             </div>

@@ -6,10 +6,10 @@ const getFaceSpriteNameByGearRatio = (gearRatio) => {
     return '1-1';
   }
 
-  if (gearRatio < 3.0) {
+  if (gearRatio < 2.5) {
     return '1-1';
   }
-  if (gearRatio < 3.4) {
+  if (gearRatio < 3.2) {
     return '1-2';
   }
   if (gearRatio < 3.8) {
