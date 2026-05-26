@@ -27,3 +27,19 @@ Translations live in `src/i18n/translations.json` and are loaded by `src/js/i18n
 ## Deployment
 
 Automated deployment using GitHub Actions. The site is served by Nginx with extensionless routing.
+
+## Local Development With Docker
+
+Run the site locally with an Nginx container that mirrors production routes (without TLS):
+
+```bash
+docker compose up -d
+```
+
+Open `http://localhost:8080`.
+
+Stop the container:
+
+```bash
+docker compose down
+```
