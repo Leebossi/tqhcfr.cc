@@ -22,4 +22,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "cd projects/tqhcfr.cc && bash .scripts/deploy.sh"
+          script: |
+            cd projects/tqhcfr.cc
+            git pull --ff-only origin main
+            bash .scripts/deploy.sh

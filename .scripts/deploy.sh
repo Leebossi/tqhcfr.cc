@@ -17,10 +17,6 @@ fi
 echo "Deployment started ..."
 echo "Using Node $(node -v) and npm $(npm -v)"
 
-# Pull the latest version of the app
-git pull origin main
-echo "New changes copied to server !"
-
 # Copying src to /var/www/
 echo "Copying src to /var/www/tqhcfr"
 sudo cp -r src/* /var/www/tqhcfr
